@@ -31,7 +31,7 @@ int main(void){
   node *FILA_2020 = (node *) malloc(sizeof(node));
   
   if(!FILA_1990 || !FILA_2000 || !FILA_2010 || !FILA_2020){
-    printf("Sem memoria disponivel!\n");
+    printf("Sem memória disponivel!\n");
     exit(1);
     }
   else{
@@ -59,13 +59,13 @@ int main(void){
 int menu(void){
   int opt;
 
-  printf("\n-=-=-=-= Escolha a opÃ§Ã£o -=-=-=-=\n");
+  printf("\n-=-=-=-= Escolha a opção -=-=-=-=\n");
   printf("0. Sair\n");
   printf("1. Zerar fila\n");
   printf("2. Exibir fila\n");
   printf("3. Adicionar Elemento na Fila\n");
   printf("4. Retirar Elemento da Fila\n");
-  printf("OpÃ§Ã£o: "); 
+  printf("Opção: "); 
   scanf("%d", &opt);
 
  return opt;
@@ -91,18 +91,18 @@ void opcao(node *FILA, node *FILA_2, node *FILA_3, node *FILA_4, int op) {
      break;
   
     case 2:
-      printf("Escolha a dÃ©cada que deseja exibir 1990/2000/2010/2020:\n");
+      printf("Escolha a década que deseja exibir 1990/2000/2010/2020:\n");
       scanf("%d", &escolha);
       exibe(FILA, FILA_2, FILA_3, FILA_4, escolha);
      break;
   
     case 3:
-      printf("Escolha a dÃ©cada em que deseja adicionar o disco 1990/2000/2010/2020:\n");
+      printf("Escolha a década em que deseja adicionar o disco 1990/2000/2010/2020:\n");
       scanf("%d", &escolha);
       insere(FILA, FILA_2, FILA_3, FILA_4, escolha);
       break;
     case 4:
-      printf("Escolha a dÃ©cada em que deseja remover o disco 1990/2000/2010/2020:\n");
+      printf("Escolha a década em que deseja remover o disco 1990/2000/2010/2020:\n");
       scanf("%d", &escolha);
       tmp= retira(FILA, FILA_2, FILA_3, FILA_4, escolha);
         if(tmp != NULL){
@@ -112,9 +112,6 @@ void opcao(node *FILA, node *FILA_2, node *FILA_3, node *FILA_4, int op) {
       break;
     }
   }
-
-
- 
 
 void inicia(node *FILA){
   FILA->prox = NULL;
@@ -131,20 +128,20 @@ int vazia(node *FILA){
 node *aloca(){
  node *novo=(node *) malloc(sizeof(node));
  if(!novo){
-  printf("Sem memoria disponivel!\n");
+  printf("Sem memória disponivel!\n");
   exit(1);
  }
  else{
-  printf("-=-=-=-= Preencha as informÃ§Ãµes sobre o livro =-=-=-=-\n");
-  printf("CÃ³digo do disco:\n");
+  printf("-=-=-=-= Preencha as informações sobre o livro =-=-=-=-\n");
+  printf("Código do disco:\n");
   scanf("%d", &novo->codigo);
-  printf("TÃ­tulo:\n");
+  printf("Tí­tulo:\n");
   scanf("%29s", novo->titulo);
   printf("Diretora:\n");
   scanf("%29s", novo->diretora);
   printf("Produtora:\n");
   scanf("%29s", novo->produtora);
-  printf("Ano de produÃ§Ã£o:\n");
+  printf("Ano de produção:\n");
   scanf("%d", &novo->ano);
   return novo;
  }
@@ -167,7 +164,7 @@ void insere(node *FILA, node *FILA_2, node *FILA_3, node *FILA_4, int escolha){
         }
       }
       else
-        printf("DÃ©cada incompartivel!");
+        printf("Década incompatível!");
       break;
     case(2000):
       if (novo->ano >= 2000 && novo->ano < 2010){
@@ -181,7 +178,7 @@ void insere(node *FILA, node *FILA_2, node *FILA_3, node *FILA_4, int escolha){
         }
       }
       else
-        printf("DÃ©cada incompartivel!");
+        printf("Década incompatível!");
       break;
     case(2010):
       if (novo->ano >= 2010 && novo->ano < 2020){
@@ -195,7 +192,7 @@ void insere(node *FILA, node *FILA_2, node *FILA_3, node *FILA_4, int escolha){
         }
       }
       else
-        printf("DÃ©cada incompartivel!");
+        printf("Década incompatível");
       break;
     case(2020):
       if (novo->ano >= 2020 && novo->ano < 2023){
@@ -209,20 +206,19 @@ void insere(node *FILA, node *FILA_2, node *FILA_3, node *FILA_4, int escolha){
         }
       }
       else
-        printf("DÃ©cada incompartivel!");
+        printf("Década incompatível!");
       break;
     default:
-      printf("Comando invÃ¡lido! Digite corretamente!");
+      printf("Comando inválido! Digite corretamente!");
   }
 }
-
 
 node* retira(node *FILA, node *FILA_2, node *FILA_3, node *FILA_4, int escolha){
   node* tmp;
   switch(escolha){
     case(1990):
       if(FILA->prox == NULL){
-        printf("Fila jÃ¡ esta vazia!\n");
+        printf("Fila já esta vazia!\n");
         return NULL;
       } 
       else{
@@ -234,7 +230,7 @@ node* retira(node *FILA, node *FILA_2, node *FILA_3, node *FILA_4, int escolha){
       break;
     case(2000):
       if(FILA_2->prox == NULL){
-        printf("Fila jÃ¡ esta vazia!\n");
+        printf("Fila já esta vazia!\n");
         return NULL;
       } 
       else{
@@ -245,7 +241,7 @@ node* retira(node *FILA, node *FILA_2, node *FILA_3, node *FILA_4, int escolha){
       break;
     case(2010):
       if(FILA_3->prox == NULL){
-        printf("Fila jÃ¡ esta vazia!\n");
+        printf("Fila já esta vazia!\n");
         return NULL;
         } 
       else{
@@ -256,7 +252,7 @@ node* retira(node *FILA, node *FILA_2, node *FILA_3, node *FILA_4, int escolha){
       break;
     case(2020):
       if(FILA_4->prox == NULL){
-        printf("Fila jÃ¡ esta vazia!\n");
+        printf("Fila já esta vazia!\n");
         return NULL;
         } 
       else{
@@ -266,7 +262,7 @@ node* retira(node *FILA, node *FILA_2, node *FILA_3, node *FILA_4, int escolha){
         }
       break;
     default:
-      printf("Comando invÃ¡lido! Digite corretamente!");
+      printf("Comando inválido! Digite corretamente!");
   }
 }
 
@@ -283,7 +279,7 @@ void exibe(node *FILA, node *FILA_2, node *FILA_3, node *FILA_4, int escolha){
       
       tmp = FILA->prox;
       while( tmp != NULL){
-        printf("-=-=-=-=-= InformaÃ§Ãµes do disco %d: -=-=-=-=-=\n", c);
+        printf("-=-=-=-=-= Informações do disco %d: -=-=-=-=-=\n", c);
         printf("%d\n", tmp->codigo);
         printf("%s\n", tmp->titulo);
         printf("%s\n", tmp->diretora);
@@ -301,7 +297,7 @@ void exibe(node *FILA, node *FILA_2, node *FILA_3, node *FILA_4, int escolha){
         tmp = FILA_2->prox;
         
         while( tmp != NULL){
-          printf("-=-=-=-=-= InformaÃ§Ãµes do disco %d: -=-=-=-=-=\n", c);
+          printf("-=-=-=-=-= Informações do disco %d: -=-=-=-=-=\n", c);
           printf("%d\n", tmp->codigo);
           printf("%s\n", tmp->titulo);
           printf("%s\n", tmp->diretora);
@@ -319,7 +315,7 @@ void exibe(node *FILA, node *FILA_2, node *FILA_3, node *FILA_4, int escolha){
         tmp = FILA_3->prox;
         
         while( tmp != NULL){
-          printf("-=-=-=-=-= InformaÃ§Ãµes do disco %d: -=-=-=-=-=\n", c);
+          printf("-=-=-=-=-= Informações do disco %d: -=-=-=-=-=\n", c);
           printf("%d\n", tmp->codigo);
           printf("%s\n", tmp->titulo);
           printf("%s\n", tmp->diretora);
@@ -336,7 +332,7 @@ void exibe(node *FILA, node *FILA_2, node *FILA_3, node *FILA_4, int escolha){
         }
         tmp = FILA_4->prox;
         while( tmp != NULL){
-          printf("-=-=-=-=-= InformaÃ§Ãµes do disco %d: -=-=-=-=-=\n", c);
+          printf("-=-=-=-=-= Informações do disco %d: -=-=-=-=-=\n", c);
           printf("%d\n", tmp->codigo);
           printf("%s\n", tmp->titulo);
           printf("%s\n", tmp->diretora);
@@ -347,7 +343,7 @@ void exibe(node *FILA, node *FILA_2, node *FILA_3, node *FILA_4, int escolha){
         }
       break;
     default:
-      printf("Comando invÃ¡lido! Digite corretamente!");
+      printf("Comando inválido! Digite corretamente!");
   }
 }
 
